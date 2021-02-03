@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mercadopago = require("mercadopago");
+const port = process.env.PORT || 3000;
 
 //REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel/credentials
 mercadopago.configure({
@@ -89,6 +90,6 @@ app.get('/feedback', function(request, response) {
 	})
 });
 
-app.listen(8080, () => {
-  console.log("The server is now running on Port 8080");
+app.listen(port, () => {
+  console.log("The server is now running on Port " + port);
 });
