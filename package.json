@@ -2,10 +2,10 @@
   "name": "mp-card-payment-nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "debug": "nodemon --inspect=5005 server.js"
+    "start": "node app.js",
+    "debug": "nodemon --inspect=5005 app.js"
   },
   "dependencies": {
     "express": "4.17.1",

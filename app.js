@@ -10,7 +10,7 @@ mercadopago.configure({
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("../../client"));
+app.use(express.static("./client"));
 
 app.get("/", function (req, res) {
   	res.status(200).sendFile("index.html");
@@ -47,9 +47,9 @@ app.post("/create_preference", (req, res) => {
 			}
 		},
 		back_urls: {
-			"success": "/feedback",
-			"failure": "/feedback",
-			"pending": "/feedback"
+			"success": "./feedback",
+			"failure": "./feedback",
+			"pending": "./feedback"
 		},
 		auto_return: 'approved',
 		payment_methods: {
