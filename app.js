@@ -14,8 +14,8 @@ app.use(express.json());
 app.use(express.static("./client"));
 
 app.get("/", function (req, res) {
-  	res.status(200).sendFile("index.html");
-}); 
+	res.status(200).sendFile("index.html");
+});
 
 app.post("/create_preference", (req, res) => {
 
@@ -24,7 +24,7 @@ app.post("/create_preference", (req, res) => {
 			id:1234,
 			"description":"Dispositivo móvil de Tienda e-commerce",
 			"currency_id": "MXN",
-			"picture_url": "https://www.mercadopago.com/org-img/MP3/home/logomp3.gif",
+			"picture_url": "https://diegofrabasa-mercadopagodevs.herokuapp.com/img/iphone12.jpeg",
 			title: req.body.description,
 			unit_price: Number(req.body.price),
 			quantity: Number(req.body.quantity),
@@ -48,9 +48,9 @@ app.post("/create_preference", (req, res) => {
 			}
 		},
 		back_urls: {
-			"success": "./feedback",
-			"failure": "./feedback",
-			"pending": "./feedback"
+			"success": "https://diegofrabasa-mercadopagodevs.herokuapp.com/feedback",
+			"failure": "https://diegofrabasa-mercadopagodevs.herokuapp.com/feedback",
+			"pending": "https://diegofrabasa-mercadopagodevs.herokuapp.com/feedback"
 		},
 		auto_return: 'approved',
 		payment_methods: {
@@ -79,7 +79,7 @@ app.post("/create_preference", (req, res) => {
 });
 
 app.get('/feedback', function(request, response) {
-	 response.json({
+	response.json({
 		Payment_Id: request.query.payment_id,
 		Collection_Id: request.query.collection_id,
 		Status: request.query.status,
@@ -91,5 +91,5 @@ app.get('/feedback', function(request, response) {
 });
 
 app.listen(port, () => {
-  console.log("The server is now running on Port " + port);
+	console.log("The server is now running on Port " + port);
 });
